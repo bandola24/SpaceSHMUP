@@ -23,14 +23,13 @@ public class Hero : MonoBehaviour {
 	void Awake(){
 		S = this;
 		bounds = Utils.CombineBoundsOfChildren (this.gameObject);
-		ClearWeapons ();
-		weapons [0].SetType (WeaponType.blaster);
 	}
 
 
 	// Use this for initialization
 	void Start () {
-	
+		ClearWeapons ();
+		weapons [0].SetType (WeaponType.blaster);
 	}
 	
 	// Update is called once per frame
