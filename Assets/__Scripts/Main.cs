@@ -17,7 +17,7 @@ public class Main : MonoBehaviour {
 	void Awake () {
 		S = this;
 		Utils.SetCameraBounds (this.GetComponent<Camera>());
-		enemySpawnRate = 1f;
+		enemySpawnRate = 1f/enemySpawnPerSecond;
 		Invoke ("SpawnEnemy", enemySpawnRate);
 
 	}
@@ -37,5 +37,13 @@ public class Main : MonoBehaviour {
 		pos.y = Utils.camBounds.max.y + enemySpawnPadding;
 		go.transform.position = pos;
 		Invoke ("SpawnEnemy", enemySpawnRate);
+	}
+
+	public void DelayedRestart (float delay) {
+		Invoke ("Restart", delay);
+	}
+
+	public void Restart() {
+		Application.LoadLevel ("_Scene_0");
 	}
 }
